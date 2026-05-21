@@ -22,17 +22,17 @@
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p><strong>Effective Date:</strong> 04-Aug-2025<br>
+  <p><strong>Effective Date:</strong> 21-May-2026<br>
      <strong>App Name:</strong> Battery Info<br>
      <strong>Developer:</strong> Medo</p>
 
   <div class="section">
-    <h2>1. Introduction</h2>
+    <h2>Introduction</h2>
     <p>This app operates entirely on-device and is designed solely to display battery-related information (such as level, voltage, and temperature).<br>No internet connection is used or required, and no data leaves your device at any time.</p>
   </div>
 
   <div class="section">
-    <h2>2. Information We Do Not Collect</h2>
+    <h2>Information We Do Not Collect</h2>
     <p>We respect your privacy — and your data.</p>
     <ul>
       <li><strong>Does NOT collect</strong> personal data</li>
@@ -43,30 +43,49 @@
   </div>
 
   <div class="section">
-    <h2>3. Permissions</h2>
+    <h2>Permissions</h2>
     <ul>
-      <li>Display over other apps</li>
+      <li>Notifications: Show the persistent service notification and the optional "battery full" alert</li>
+      <li>Display over other apps: Use the floating battery overlay</li>
+      <li>Foreground service: Keeps the user-enabled battery-monitoring service alive in the background</li>
+      <li>Ignore battery optimizations: So the user-chosen polling interval is not throttled by Doze</li>
+      <li>Full-screen intent: Surface the "battery full" alert over the lock screen.</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>4. Third-Party Services</h2>
+    <h2>Foreground services</h2>
+    <p>Battery Info uses two optional foreground services (Battery Monitoring Service and Battery Overlay Service). Each is off by default and can be enabled or disabled by the user inside the app. While running, each service shows a persistent notification so you always know it is active. The services only read battery state from the operating system; no data is collected or transmitted.</p>
+  </div>
+
+  <div class="section">
+    <h2>Local data storage</h2>
+    <p>Battery Info stores the following on your device:</p>
+    <ul>
+      <li>User settings and preferences (refresh interval, toggle states, etc.)</li>
+      <li>Battery health samples (charge-counter values captured at full charge) used to compute estimated capacity and cycle count</li>
+      <li>An optional user-initiated backup file (Settings.txt) written to your device's Document/Battery Info folder via Android's standard MediaStore when you tap "Export". This file is never transmitted by the app — it exists solely so you can restore your settings later.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Third-Party Services</h2>
     <p>This app <strong>does not use any third-party services</strong> that may collect information used to identify you or SDKs.</p>
   </div>
 
   <div class="section">
-    <h2>5. Children’s Privacy</h2>
+    <h2>Children’s Privacy</h2>
     <p>We do not knowingly collect personal data from children under the age of 13. If you believe a child has provided us with personal information, please contact us, and we will take appropriate steps to remove such information.</p>
   </div>
 
   <div class="section">
-    <h2>6. Changes to This Privacy Policy</h2>
+    <h2>Changes to This Privacy Policy</h2>
     <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with a new effective date.
     <br>We recommend reviewing this page periodically for any changes.</p>
   </div>
 
   <div class="section">
-    <h2>7. Contact Us</h2>
+    <h2>Contact Us</h2>
     <p>If you have any questions or concerns about this Privacy Policy, feel free to contact us at:</p>
     <p><strong>Email:</strong> mjs.medo@gmail.com<br>
        <strong>Developer:</strong> Medo</p>
