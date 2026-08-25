@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ToneSet — Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 720px;
+         margin: 0 auto; padding: 24px; line-height: 1.6; color: #222; }
+  h1 { color: #6750A4; } h2 { color: #4F378B; margin-top: 2em; }
+  .updated { color: #666; font-size: 0.9em; }
+  code { background: #F3EDF7; padding: 1px 5px; border-radius: 4px; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #141218; color: #E6E0E9; }
+    h1 { color: #D0BCFF; } h2 { color: #EADDFF; } .updated { color: #999; }
+    code { background: #2B2930; }
+  }
+</style>
+</head>
+<body>
+<h1>ToneSet — Privacy Policy</h1>
+<p class="updated">Effective date: 25 August 2026</p>
+
+<p>ToneSet ("the app") sets audio files as your ringtone, notification sound or
+alarm sound on Android. This policy explains what the app can access and what
+happens to it. The summary is simple: <strong>nothing you do in ToneSet leaves
+your device.</strong></p>
+
+<h2>Data the app accesses</h2>
+<p><strong>One audio file at a time, chosen by you.</strong> ToneSet has no
+permission to browse your storage. When you tap to choose a sound, Android's own
+file picker opens and hands the app access to <em>only</em> the single file you
+select. The app reads that file's name and its audio content so it can play a
+preview and copy it into your sound library.</p>
+<p><strong>Your current sound settings.</strong> The app reads which sounds are
+currently set as your ringtone, notification and alarm so it can show them to
+you, and writes to those settings when you ask it to set a new one. This is the
+<code>WRITE_SETTINGS</code> permission, which Android requires for any app that
+changes these sounds. It is used for nothing else.</p>
+
+<h2>Data the app stores</h2>
+<p>Two things, both on your device only:</p>
+<ul>
+  <li>A reference to the last file you picked, so the app can reopen it next
+      launch. Stored in the app's private storage.</li>
+  <li>Copies of the sounds you set, placed in your device's standard Ringtones,
+      Notifications and Alarms folders — because Android requires a sound to
+      live there before it can be used as a ringtone. Your original files are
+      never moved, renamed or altered. The app's "Copied files" screen lets you
+      view and delete these copies at any time.</li>
+</ul>
+<p>Uninstalling the app removes its private storage. Copies already placed in
+your sound folders remain on the device, as they are ordinary files in shared
+storage — delete them from the app first if you want them gone.</p>
+
+<h2>Data the app shares</h2>
+<p><strong>None.</strong> ToneSet does not request the internet permission and
+contains no networking code. It cannot transmit anything anywhere. There are no
+analytics, no advertising SDKs, no crash reporting services, no tracking and no
+user accounts.</p>
+
+<h2>Children</h2>
+<p>The app does not knowingly collect data from anyone, including children,
+because it collects no data at all.</p>
+
+<h2>Changes to this policy</h2>
+<p>If a future version of the app changes any of the above, this page will be
+updated and the effective date revised before that version is released.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <strong>mjs.medo@gmail.com</strong></p>
+</body>
+</html>
