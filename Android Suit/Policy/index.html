@@ -19,12 +19,14 @@
 </head>
 <body>
 <h1>Android Suit — Privacy Policy</h1>
-<p class="updated">Effective date: 16 July 2026</p>
+<p class="updated">Effective date: 9 November 2026</p>
 
-<p>Android Suit ("the app") is a file &amp; storage toolkit for Android — it finds
+<p>Android Suit is a file &amp; storage toolkit for Android — it finds
 duplicates, cleans junk, renames files, analyzes storage, removes image
-backgrounds, edits file timestamps, and manages installed apps. This policy
-explains what the app can access and what happens to it. The summary is simple:
+backgrounds, edits file timestamps, creates and extracts archives, encrypts
+files, generates and scans QR codes, reports device and memory information, and
+manages installed apps. This policy explains what the app can access and what
+happens to it. The summary is simple:
 <strong>your data never leaves your device.</strong></p>
 
 <h2>Data the app accesses</h2>
@@ -35,14 +37,75 @@ renamer, space analyzer, image editor and timestamp tool do. Files are only read
 or modified when you run a tool and act on the results. The app never uploads or
 copies your files anywhere.</p>
 
-<p><strong>Installed apps.</strong> The App Manager uses
-<code>QUERY_ALL_PACKAGES</code> to list the apps installed on your device so you
-can open their system settings or uninstall them. It reads only app names,
-package identifiers, and — if you grant the optional Usage access
-(<code>PACKAGE_USAGE_STATS</code>) — their storage sizes. This information is
-shown to you and is never transmitted or stored off-device. Uninstalling is
-performed by Android's own system dialog (<code>REQUEST_DELETE_PACKAGES</code>);
-the app cannot remove anything without your confirmation.</p>
+<p><strong>Installed apps.</strong> The App Manager lists the apps installed on
+your device so you can open their system settings or uninstall them. It does
+<em>not</em> use <code>QUERY_ALL_PACKAGES</code>; it declares a narrow
+<code>&lt;queries&gt;</code> entry that returns only apps with a launcher icon —
+the ones you can already see and open yourself. It reads only app names, package
+identifiers, and — if you grant the optional Usage access
+(<code>PACKAGE_USAGE_STATS</code>) — their storage sizes and when they were last
+used. This information is shown to you and is never transmitted or stored
+off-device. Uninstalling is performed by Android's own system dialog
+(<code>REQUEST_DELETE_PACKAGES</code>); the app cannot remove anything without
+your confirmation.</p>
+
+<p><strong>Camera.</strong> The QR Code tool can scan a code with the camera
+(<code>CAMERA</code>). The preview is processed on your device as it arrives,
+purely to decode whatever code is in frame. No photo or video is recorded, saved
+or transmitted. The permission is requested only when you start a scan, and the
+tool still works without it — you can decode a QR code from an image file
+instead.</p>
+
+<p><strong>Device and storage information.</strong> System Info, Memory and
+Storage Speed read values your device already publishes about itself — total and
+free storage, memory in use, battery and hardware details — through Android's own
+APIs and public system files. These figures are displayed to you and nothing
+more. The dashboard also keeps a local tally of what the tools have done, so it
+can show you how much space they have reclaimed.</p>
+
+<h2>Accessibility service (Force Stop)</h2>
+<p>The Force Stop tool uses an Android accessibility service. This section
+explains it in full, because it is the most capable permission the app asks
+for.</p>
+
+<p><strong>What it does.</strong> Android does not let one app stop another, so
+Force Stop does what you would do by hand: it opens the <em>App info</em> screen
+for each app you selected, presses that screen's <strong>Force stop</strong>
+button, and confirms the dialog — one app after another, while you watch every
+step happen on screen. It follows a fixed sequence of steps. It makes no
+decisions of its own, and it never acts on an app you have not chosen.</p>
+
+<p><strong>What it can see.</strong> An accessibility service is able to read
+what is on screen. This one reads screen content only in the system Settings app,
+only while a run that you started is in progress, and only to locate that button
+and its confirmation. It does not read any other app, and it does not run at any
+other time.</p>
+
+<p><strong>What happens to that.</strong> Nothing is recorded, nothing is stored,
+and nothing is transmitted. The service keeps no log of what it saw. Its only
+output is the number of apps stopped, which the app shows you when the run
+finishes.</p>
+
+<p><strong>You turn it on, and you can turn it off.</strong> The app explains all
+of the above inside the app and asks you to accept it before it will even send
+you to Android's accessibility settings. If you decline, nothing is enabled and
+the rest of the app works normally. You can switch the service off at any time in
+<em>Settings → Accessibility</em>, and Android itself revokes it if you force-stop
+Android Suit.</p>
+
+<p><strong>It is not an accessibility tool.</strong> Android Suit is a file and
+storage toolkit, not an aid for people with disabilities, and it does not claim
+to be one — it does not set the <code>isAccessibilityTool</code> flag. It uses the
+accessibility API for the single automation task described above, and declares
+that use honestly.</p>
+
+<h2>Notifications</h2>
+<p>The app posts no notifications. It asks for <code>POST_NOTIFICATIONS</code>
+for one indirect reason: Android suppresses a background app's brief pop-up
+messages while that permission is denied, which left the Force Stop home-screen
+widget finishing a run without telling you the result. The permission is only
+requested if you want that pop-up, and the widget writes the result on itself
+either way.</p>
 
 <h2>Data the app stores</h2>
 <p>Your settings, per-tool preferences, and the in-app Trash are stored locally
@@ -54,7 +117,8 @@ the app removes its settings and empties its Trash.</p>
 <p><strong>None.</strong> Android Suit has no <code>INTERNET</code> permission and
 contains no networking code. It cannot and does not transmit any data off your
 device. There are no analytics, no advertising SDKs, no crash-reporting services,
-and no user accounts.</p>
+and no user accounts. This applies to everything described above without
+exception, including anything the accessibility service sees.</p>
 <p>The only way data leaves the app is when <em>you</em> explicitly move, export,
 or share a file yourself.</p>
 
